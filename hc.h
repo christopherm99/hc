@@ -28,6 +28,13 @@ struct hc_state {
   char flags;
 };
 
+struct hc_data {
+  char *left;
+  char *center;
+  char *right;
+  struct hc_data *next;
+};
+
 struct hc_state *_HC_STATE = NULL;
 
 static void initialize(void) {
@@ -72,7 +79,7 @@ static void _render_line(char *left, char *center, char *right, int w) {
   write(STDOUT, "\n", 1);
 }
 
-static void render(char *phone, char *desc, char *header, char *subheader) {
+static void render(struct hc_data *data) {
   uint32_t *buf;
   int h, w, i;
 
@@ -90,13 +97,8 @@ static void render(char *phone, char *desc, char *header, char *subheader) {
   buf[i] = _HC_NE;
   *(char *)(&buf[i+1]) = '\n';
   write(STDOUT, buf, (4 * (w + 2)) + 1);
-  _render_line(phone, NULL, desc, w);
-  _render_line(NULL, NULL, "at UCLA", w);
-  _render_line(NULL, NULL, NULL, w);
-  _render_line(NULL, header, NULL, w);
-  _render_line(NULL, subheader, NULL, w);
-  _render_line(NULL, NULL, NULL, w);
-  _render_line("uid=chris", NULL, "groups=chris,admin", w);
+  for (; data != NULL; data = data->next)
+    _render_line(data->left, data->center, data->right, w);
 
   // pad to center box
   memset(buf, ' ', w/2);
