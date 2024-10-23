@@ -11,3 +11,16 @@ Copyright (c) 2024 Christopher Milan <chrismilan@ucla.edu>
 > Jimi Hendrix, or the 1950 Census.
  ~ Snow Crash, Neal Stephenson
 
+HYPERCARD is a simple header only library that formats text in boxes like so:
+
+                     ┌──────────────────────────────────────────┐
+                     │ chrismilan@ucla.edu    AI Safety at UCLA │┐
+                     │                                          ││
+                     │             Christopher Milan            ││
+                     │              A user account              ││
+                     │                                          ││
+                     │ uid=chris             groups=chris,admin ││
+                     └──────────────────────────────────────────┘│
+                      └──────────────────────────────────────────┘
+
+
