@@ -23,9 +23,9 @@
 #define _HC_FIRST_LINE 0x80u
 
 struct hc_state {
-  int  term_width;
-  int  term_height;
-  char flags;
+  size_t        term_width;
+  size_t        term_height;
+  unsigned char flags;
 };
 
 struct hc_data {
@@ -55,7 +55,7 @@ static void destroy(void) {
   _HC_STATE = NULL;
 }
 
-static void _render_line(char *left, char *center, char *right, int w) {
+static void _render_line(char *left, char *center, char *right, size_t w) {
   char buf[w + 8];
 
   // pad to center box
@@ -81,7 +81,7 @@ static void _render_line(char *left, char *center, char *right, int w) {
 
 static void render(struct hc_data *data) {
   uint32_t *buf;
-  int h, w, i;
+  size_t w, i;
 
   initialize();
   _HC_STATE->flags = _HC_STACK | _HC_FIRST_LINE;

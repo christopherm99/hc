@@ -1,4 +1,7 @@
 CFLAGS+= -W -Wextra -Wpedantic -Werror \
+         -Wcast-qual -Wconversion -Wformat=2 -Wformat-security -Wnull-dereference -Wstack-protector \
+         -Warray-bounds-pointer-arithmetic -Wconditional-uninitialized -Wcomma -Wpointer-arith -Widiomatic-parentheses \
+         -Wunreachable-code-aggressive \
          -std=c99 -O2
 LIBS=    -lutil
 LDFLAGS+=
