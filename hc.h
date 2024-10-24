@@ -7,9 +7,8 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <stdio.h>
-
-#include <libutil.h>
 
 #define STDOUT 1
 #define _HC_NS 0x008294E2

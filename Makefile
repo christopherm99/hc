@@ -3,7 +3,7 @@ CFLAGS+= -W -Wextra -Wpedantic -Werror \
          -Warray-bounds-pointer-arithmetic -Wconditional-uninitialized -Wcomma -Wpointer-arith -Widiomatic-parentheses \
          -Wunreachable-code-aggressive \
          -std=c99 -O2
-LIBS=    -lutil
+LIBS=
 LDFLAGS+=
 
 
