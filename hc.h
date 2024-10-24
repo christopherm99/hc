@@ -79,12 +79,12 @@ static void _render_line(char *left, char *center, char *right, size_t w) {
   write(STDOUT, "\n", 1);
 }
 
-static void render(struct hc_data *data) {
+static void render(struct hc_data *data, unsigned char flags) {
   uint32_t *buf;
   size_t w, i;
 
   initialize();
-  _HC_STATE->flags = _HC_STACK | _HC_FIRST_LINE;
+  _HC_STATE->flags = flags | _HC_FIRST_LINE;
 
   w = (_HC_STATE->term_width / 2);
   buf = (uint32_t *)malloc((4 * (w + 2)) + 1);
